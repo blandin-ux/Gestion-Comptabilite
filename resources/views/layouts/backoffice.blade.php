@@ -31,6 +31,49 @@
           font-size: 3.5rem;
         }
       }
+.entree{
+    font-weight: 600;
+    font-size: 30px;
+    font-family: cursive;
+    color: darkgreen;
+}
+.sortie{
+    font-weight: 600;
+    font-size: 30px;
+    font-family: cursive;
+    color: darkred;
+}
+.es{
+    font-weight: 600;
+    font-size: 30px;
+    font-family: cursive;
+    color: dodgerblue;
+}
+.monnav{
+  height:80px;
+  
+}
+.shadow{
+  box-shadow: 0 0.5rem 1rem rgba(28, 5, 23, 16.15) 
+}
+h2{
+    font-family: cursive;
+    font-size: 40px;
+    letter-spacing: 3px;
+    font-weight:900;
+    color:royalblue;
+}
+h6{
+    background: linear-gradient(0deg, royalblue, transparent);
+    color: white;
+    font-family: cursive;
+    letter-spacing: 3px;
+    font-weight:900;
+
+}
+thead{
+  box-shadow: 0px 0px 5px 1px black;
+}
     </style>
     <!-- Custom styles for this template -->
     <script src="{{asset('js/jquery.js')}}"></script>
@@ -44,11 +87,11 @@
   
   <body>
 
-    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-      <h3 class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" >Altcom Boutique</h3>
-      <ul class="navbar-nav px-3">
+    <nav class="navbar navbar-dark sticky-top bg-primary flex-md-nowrap p-0 shadow monnav">
+      <h3 class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" >Gestion de la copmtabilité</h3>
+      <ul class="navbar-nav px-3 shadow">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="/deconnexion"> {{Auth::user()->name}} </a>
+          <a class="nav-link" href="/deconnexion">  </a>
         </li>
       </ul>
     </nav>
@@ -57,55 +100,63 @@
     <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
       <div class="sidebar-sticky pt-3">
         <ul class="nav flex-column">
+        
+        <li class="nav-item">
+            <a class="nav-link" href="/suivis">
+              <span data-feather="file"></span>
+                Suivis des Opérations <i class="fa fa-home"></i>
+            </a>
+          </li>
+
           <li class="nav-item">
-            <a class="nav-link active" href="/facture/index">
+            <a class="nav-link" href="/suivis/compte">
+              <span data-feather="file"></span>
+                Compte de résultas <i class=""></i>
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" href="/journal/mois">
               <span data-feather="home"></span>
-              Vente Facture <span class="sr-only">(current)</span>
+              Journal Par Mois (1 mois) <span class="sr-only">(current)</span>
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="/achats">
+            <a class="nav-link" href="/journal/trimestre">
               <span data-feather="file"></span>
-              Vente Ticket
+              Journal Par Trimestre (3 mois)
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="/clients">
+            <a class="nav-link" href="/journal/semestre">
               <span data-feather="file"></span>
-              Gestion des clients
+              Journal Par Semestre (4 mois)
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="/liste-categories">
+            <a class="nav-link" href="/journal/ans">
               <span data-feather="file"></span>
-              Gestion des Catégories
+              Journal Par Ans (1)
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="/gestion-articles">
+            <a class="nav-link" href="/">
               <span data-feather="file"></span>
-              Gestion des Articles
+              Journal Par Décennie (10)
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="/gestion-stocks">
+            <a class="nav-link" href="/">
               <span data-feather="file"></span>
-              Gestion des Stocks
+              Date : {{date('d M Y ')}}
             </a>
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="/inventaires">
-              <span data-feather="file"></span>
-              Gestion des Inventaires
-            </a>
-          </li>
-
+          
         </ul>
       </div>
     </nav>
