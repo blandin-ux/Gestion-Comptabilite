@@ -23,8 +23,8 @@ Journal du mois de Juin
         <tr>
             <td> {{$suivi->rubrique?$suivi->rubrique->name:"Aucune"}} </td>
             <td> {{$suivi->libele}} </td>
-            <td> {{$suivi->entree}} Frcfa </td>
-            <td> {{$suivi->sortie}} Frcfa </td>
+            <td> {{number_format($suivi->entree)}} Frcfa </td>
+            <td> {{number_format($suivi->sortie)}} Frcfa </td>
             <td> {{$suivi->created_at->format('d M Y à H:i:s')}} </td>
         </tr>
         @endforeach

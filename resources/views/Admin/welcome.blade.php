@@ -3,26 +3,26 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
-
-        <title>Page d'acceuil</title>
+        <link rel="stylesheet" href="{{asset('fonts/font-awesome.css')}}">
+        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+        <link rel="stylesheet" href="{{asset('css/style1.css')}}">
+        <title>Espace Administrateur</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
+        <!-- Styles -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/v4-shims.css">
-
-
-        <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-color: black;
+                color: floralwhite;
                 font-family: 'Nunito', sans-serif;
-                font-weight: 200;
+                font-weight: 100;
                 height: 100vh;
                 margin: 0;
             }
@@ -52,11 +52,12 @@
             }
 
             .title {
-                font-size: 84px;
+                font-size: 74px;
+                letter-spacing: 7px;
             }
 
-            .link > a {
-                color: #636b6f;
+            .links > a {
+                color: grey;
                 padding: 0 25px;
                 font-size: 13px;
                 font-weight: 600;
@@ -65,38 +66,66 @@
                 text-transform: uppercase;
             }
 
+            .links > a:hover{
+                color: white;
+            }
+
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            #btn>a{
+                color: white;
+                text-decoration:none;
+            }
+            #text{
+                animation-name: text;
+                animation-duration: 3s;
+                animation-delay: 1;   
+                font-size: 58px;             
+
+            } 
+
+            @keyframes text{
+    0%{
+        color: black;
+        margin-bottom: -40px;
+    }
+    30%{
+        letter-spacing: 25px;
+        margin-bottom: -40px;
+        font-weight: 200;
+    }
+    85%{
+        letter-spacing: 8px;
+        margin-bottom: -40;
+    }
+    100%{
+        color: snow;
+        
+    }
+}
+
         </style>
     </head>
+        <div class="float-right">
+          <a class="btn btn-danger mr-3 mt-3" id="pos"  href="/deconnexion">Déconnexion <i class="fa fa-sign-out"></i></a> 
+        </div>         
+
     <body>
         <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="/deconnexion" class="btn btn-outline-danger">Deconnexion</a>
-                    @else
-                    <a href="/login" class="btn btn-outline-success">Connexion</a>
-                    <a href="/register" class="btn btn-outline-primary">Ouvrir le compte</a>
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                Gestion de la Comptabilité
+            <div class="content" id="divp"> 
+                <div class="title m-b-md" id="text">
+                    Bienvenue Mr {{Auth::user()->name}}
                 </div>
 
-                <div class="link">
-                    <a href="https://facebook.com">Facebook</a>
-                    <a href="https://whatsapp.com">Whatsapp</a>
-                    <a href="https://twitter.com">Twitter</a>
-                    <a href="https://gmail.com">Gmail</a>
-                    <a href="https://google.com">Google</a>
-                    <a href="https://amazon.com">Amazon</a>
-                    <a href="https://vapor.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="links">
+                    <a href="/suivis">Suivis Comptable</a>
+                    <a href=""></a>
+                    <a href="journal/mois">Journaux</a>
+                    <a href=""></a>
+                    <a href="/rubriques">Gestion des rubriques</a>
+                    <a href=""></a>                    
                 </div>
             </div>
         </div>

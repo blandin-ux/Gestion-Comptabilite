@@ -256,8 +256,32 @@ class SuiviController extends Controller
     }
 
     public function calcule(Request $request){
-        $resultat = $request->ma + $request->mp;
-        //dd($resultat);
+        //$resultat = $request->ma + $request->mp;
+        if ($request->mp > $request->ma) {
+            $resultat = ($request->mp-$request->ma * 2)/100;
+            //dd($rep);
+        }
+        else {
+            $resultat = ($request->ma-$request->mp * 2)/100;
+            //dd($rep);
+        }
+
         return redirect('/suivis/compte')->with(compact('resultat'));
+    }
+
+    public function trimestre(){
+        return view('Journaux/trimestre');
+    }
+    
+    public function semestre(){
+        return view('Journaux/semestre');
+    }
+    
+    public function ans(){
+        return view('Journaux/ans');
+    }
+    
+    public function decennie(){
+        return view('Journaux/decennie');
     }
 }

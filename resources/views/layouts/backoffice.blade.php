@@ -64,7 +64,7 @@ h2{
     color:royalblue;
 }
 h6{
-    background: linear-gradient(0deg, royalblue, transparent);
+    background: linear-gradient(0deg, royalblue, black);
     color: white;
     font-family: cursive;
     letter-spacing: 3px;
@@ -78,10 +78,16 @@ thead{
     <!-- Custom styles for this template -->
     <script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{asset('bootstrap/js/bootstrap.js')}}"></script>
-    
-    
+
+    <!--
     <link rel="stylesheet" href="{{asset('css/bootstrap-grid.css')}}">
-    <link rel="stylesheet" href="{{asset('fonts/font-awesome.css')}}">
+    <link rel="stylesheet" href="{{asset('fonts/font-awesome.css')}}">-->
+    <!-- Bootstrap, Js et Font-awesom en ligne-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.10.0/css/v4-shims.css">
 
   </head>
   
@@ -91,7 +97,7 @@ thead{
       <h3 class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" >Gestion de la copmtabilité</h3>
       <ul class="navbar-nav px-3 shadow">
         <li class="nav-item text-nowrap">
-          <a class="nav-link" href="/deconnexion">  </a>
+          <a class="nav-link mr-3" href="/deconnexion"> {{auth::user()->name}} <i class="fa fa-sign-out"></i> </a>
         </li>
       </ul>
     </nav>
@@ -118,35 +124,35 @@ thead{
           <li class="nav-item">
             <a class="nav-link active" href="/journal/mois">
               <span data-feather="home"></span>
-              Journal Par Mois (1 mois) <span class="sr-only">(current)</span>
+              Journal Par Mois  <span class="sr-only">(current)</span>
             </a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link" href="/journal/trimestre">
               <span data-feather="file"></span>
-              Journal Par Trimestre (3 mois)
+              Journal Par Trimestre 
             </a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link" href="/journal/semestre">
               <span data-feather="file"></span>
-              Journal Par Semestre (4 mois)
+              Journal Par Semestre 
             </a>
           </li>
 
           <li class="nav-item">
             <a class="nav-link" href="/journal/ans">
               <span data-feather="file"></span>
-              Journal Par Ans (1)
+              Journal Par Ans 
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="/">
+            <a class="nav-link" href="/journal/decennie">
               <span data-feather="file"></span>
-              Journal Par Décennie (10)
+              Journal Par Décennie 
             </a>
           </li>
 

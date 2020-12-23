@@ -22,40 +22,42 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home')->middleware('auth');
 
 // Route des rubriques
-Route::get('/rubriques','RubriqueController@index');
-Route::get('/rubriques/create','RubriqueController@create');
-Route::post('/rubriques','RubriqueController@store');
-Route::get('/rubriques/{rubrique}/destroy','RubriqueController@destroy');
-Route::get('/rubriques/{rubrique}/edit','RubriqueController@edit');
-Route::post('/rubriques/update','RubriqueController@update');
+Route::get('/rubriques','RubriqueController@index')->middleware('auth');
+Route::get('/rubriques/create','RubriqueController@create')->middleware('auth');
+Route::post('/rubriques','RubriqueController@store')->middleware('auth');
+Route::get('/rubriques/{rubrique}/destroy','RubriqueController@destroy')->middleware('auth');
+Route::get('/rubriques/{rubrique}/edit','RubriqueController@edit')->middleware('auth');
+Route::post('/rubriques/update','RubriqueController@update')->middleware('auth');
 // End rubriques
 
 
 // Route des suivis
-Route::get('/suivis','SuiviController@index');
-Route::get('/suivis/create','SuiviController@create');
-Route::post('/suivis','SuiviController@store');
-Route::get('/suivis/edit/{suivi}','SuiviController@edit');
-Route::post('/suivis/update','SuiviController@update');
-Route::get('/suivis/rapport','SuiviController@rapport');
-Route::get('/suivis/compte','SuiviController@compte');
-Route::get('/suivis/calcule','SuiviController@calcule');
+Route::get('/suivis','SuiviController@index')->middleware('auth');
+Route::get('/suivis/create','SuiviController@create')->middleware('auth');
+Route::post('/suivis','SuiviController@store')->middleware('auth');
+Route::get('/suivis/edit/{suivi}','SuiviController@edit')->middleware('auth');
+Route::post('/suivis/update','SuiviController@update')->middleware('auth');
+Route::get('/suivis/rapport','SuiviController@rapport')->middleware('auth');
+Route::get('/suivis/compte','SuiviController@compte')->middleware('auth');
+Route::get('/suivis/calcule','SuiviController@calcule')->middleware('auth');
 // End suivis
 
 // Route des Journaux
-Route::get('/journal/mois','SuiviController@journalmois');
-Route::get('/journal/mois/janvier','SuiviController@janvier');
-Route::get('/journal/mois/fevrier','SuiviController@fevrier');
-Route::get('/journal/mois/mars','SuiviController@mars');
-Route::get('/journal/mois/avril','SuiviController@avril');
-Route::get('/journal/mois/mai','SuiviController@mai');
-Route::get('/journal/mois/juin','SuiviController@juin');
-Route::get('/journal/mois/juillet','SuiviController@juillet');
-Route::get('/journal/mois/aout','SuiviController@aout');
-Route::get('/journal/mois/septembre','SuiviController@septembre');
-Route::get('/journal/mois/octobre','SuiviController@octobre');
-Route::get('/journal/mois/novembre','SuiviController@novembre');
-Route::get('/journal/mois/decembre','SuiviController@decembre');
+Route::get('/journal/mois','SuiviController@journalmois')->middleware('auth');
+Route::get('/journal/mois/janvier','SuiviController@janvier')->middleware('auth');
+Route::get('/journal/mois/fevrier','SuiviController@fevrier')->middleware('auth');
+Route::get('/journal/mois/mars','SuiviController@mars')->middleware('auth');
+Route::get('/journal/mois/avril','SuiviController@avril')->middleware('auth');
+Route::get('/journal/mois/mai','SuiviController@mai')->middleware('auth');
+Route::get('/journal/mois/juin','SuiviController@juin')->middleware('auth');
+Route::get('/journal/mois/juillet','SuiviController@juillet')->middleware('auth');
+Route::get('/journal/mois/aout','SuiviController@aout')->middleware('auth');
+Route::get('/journal/mois/septembre','SuiviController@septembre')->middleware('auth');
+Route::get('/journal/mois/octobre','SuiviController@octobre')->middleware('auth');
+Route::get('/journal/mois/novembre','SuiviController@novembre')->middleware('auth');
+Route::get('/journal/mois/decembre','SuiviController@decembre')->middleware('auth');
+Route::get('/journal/trimestre','SuiviController@trimestre')->middleware('auth');
+Route::get('/journal/semestre','SuiviController@semestre')->middleware('auth');
+Route::get('/journal/ans','SuiviController@ans')->middleware('auth');
+Route::get('/journal/decennie','SuiviController@decennie')->middleware('auth');
 // Fin Journeaux
-
-//calebcaleb2020

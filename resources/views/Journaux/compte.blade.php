@@ -64,8 +64,19 @@ h2{
     text-shadow: 1px 1px 2px black;
 }
 input{
-    
-    
+      
+}
+.output{
+    font-size: 30px;
+    font-family: cursive;
+    font-weight: 900;
+    color: black;  
+}
+.select{
+    font-weight: bold;
+    color: black;
+    font-family: cursive;
+    text-shadow: 1px 1px 2px black;
 }
 </style>
 <div class="container-fluid mb-5">
@@ -212,30 +223,63 @@ input{
         </div>
     </div>
     <div class="container mt-3">
-        <form action="/suivis/calcule" method="get" class="">
+        <form action="" method="get" class="">
             <h5 class="variation">Variation en Mois</h5>
             <div class="row">
                 <div class="col-md-6">
                     <label> Chiffre d'affaire du mois précédent </label>
-                    <input type="number" class="form-control" name="mp" required>
+                    <select name="mp" id="" class="form-control select">
+                        <option value="">...</option>
+                        <option value="{{$janvier->sum('entree') + $janvier->sum('sortie')}}">Janvier</option>
+                        <option value="{{$fevrier->sum('entree') + $fevrier->sum('sortie')}}">Février</option>
+                        <option value="{{$mars->sum('entree') + $mars->sum('sortie')}}">Mars</option>
+                        <option value="{{$avril->sum('entree') + $avril->sum('sortie')}}">Avril</option>
+                        <option value="{{$mai->sum('entree') + $mai->sum('sortie')}}">Mai</option>
+                        <option value="{{$juin->sum('entree') + $juin->sum('sortie')}}">Juin</option>
+                        <option value="{{$juillet->sum('entree') + $juillet->sum('sortie')}}">Juillet</option>
+                        <option value="{{$aout->sum('entree') + $aout->sum('sortie')}}">Août</option>
+                        <option value="{{$septembre->sum('entree') + $septembre->sum('sortie')}}">Septembre</option>
+                        <option value="{{$octobre->sum('entree') + $octobre->sum('sortie')}}">Octobre</option>
+                        <option value="{{$novembre->sum('entree') + $novembre->sum('sortie')}}">Novembre</option>
+                        <option value="{{$decembre->sum('entree') + $decembre->sum('sortie')}}">Décembre</option>
+                    </select>
                 </div>
                 <div class="col-md-6">
                 <label> Chiffre d'affaire du mois actuel </label>
-                <input type="number" class="form-control" name="ma" required>
+                <select name="ma" id="" class="form-control select">
+                        <option value="">...</option>
+                        <option value="{{$janvier->sum('entree') + $janvier->sum('sortie')}}">Janvier</option>
+                        <option value="{{$fevrier->sum('entree') + $fevrier->sum('sortie')}}">Février</option>
+                        <option value="{{$mars->sum('entree') + $mars->sum('sortie')}}">Mars</option>
+                        <option value="{{$avril->sum('entree') + $avril->sum('sortie')}}">Avril</option>
+                        <option value="{{$mai->sum('entree') + $mai->sum('sortie')}}">Mai</option>
+                        <option value="{{$juin->sum('entree') + $juin->sum('sortie')}}">Juin</option>
+                        <option value="{{$juillet->sum('entree') + $juillet->sum('sortie')}}">Juillet</option>
+                        <option value="{{$aout->sum('entree') + $aout->sum('sortie')}}">Août</option>
+                        <option value="{{$septembre->sum('entree') + $septembre->sum('sortie')}}">Septembre</option>
+                        <option value="{{$octobre->sum('entree') + $octobre->sum('sortie')}}">Octobre</option>
+                        <option value="{{$novembre->sum('entree') + $novembre->sum('sortie')}}">Novembre</option>
+                        <option value="{{$decembre->sum('entree') + $decembre->sum('sortie')}}">Décembre</option>
+                </select>
                 </div>
             </div>
             <div class="row mt-2">
                 <div class="col-md-6">
-                   
+
                 </div>
                 <div class="col-md-4">
                 <label for="">Résultats</label>
-                <output class="form-control"> {{$resultat}} </output>
+                <output class="form-control output"> 
+                    @if (request()->mp > request()->ma) 
+                       {{ number_format((((request()->mp) - (request()->ma))*2)/100) }} Frcfa
+                    @else 
+                        {{ number_format((((request()->ma) - (request()->mp))*2)/100) }} Frcfa
+                    @endif 
+                 </output>
                 </div>
             </div> 
             <input type="submit" class="btn btn-success mt-4 btn-lg col-md-2" value="Calculer">
         </form>
     </div> 
 </div>
-
 @endsection

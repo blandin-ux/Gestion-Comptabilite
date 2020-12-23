@@ -1,11 +1,13 @@
 @extends('layouts.app')
-
+@section('titre')
+Créer un compte utilisateur
+@endsection
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Inscription') }}</div>
+            <div class="card mt-5">
+                <div class="card-header">{{ __('Ouvrir le compte') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">

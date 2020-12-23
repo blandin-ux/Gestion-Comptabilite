@@ -28,7 +28,13 @@ Suivi de toutes les Opérations en cours
             <td> {{$suivi->rubrique?$suivi->rubrique->name:"Aucune"}} </td>
             <td> {{number_format($suivi->entree)}} Frcfa </td>
             <td> {{number_format($suivi->sortie)}} Frcfa </td>
-            <td> {{number_format(($suivi->sortie - $suivi->entree))}} Frcfa </td>
+            <td> 
+                @if($suivi->sortie > $suivi->entree)
+                    {{number_format(($suivi->sortie - $suivi->entree))}} Frcfa 
+                    @else
+                    {{number_format(($suivi->entree - $suivi->sortie))}} Frcfa
+                @endif                    
+            </td>
             <td> {{$suivi->created_at->format('d M Y à H:i:s')}} </td>
             <td> <a href="/suivis/edit/{{$suivi->id}}" class="btn btn-warning btn-sm">Modifier</a> </td>
         </tr>
