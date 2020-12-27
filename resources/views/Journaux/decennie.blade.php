@@ -1,6 +1,6 @@
 @extends('layouts.backoffice')
 @section('titre')
-Journal par semestre
+Journal par décennie
 @endsection
 @section('corps')
 <style>

@@ -105,8 +105,11 @@
         
     }
 }
+    #divp{
+        padding-left: 150px;
+    }
 
-        </style>
+    </style>
     </head>
         <div class="float-right">
           <a class="btn btn-danger mr-3 mt-3" id="pos"  href="/deconnexion">Déconnexion <i class="fa fa-sign-out"></i></a> 
