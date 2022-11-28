@@ -85,7 +85,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                Gestion de la Comptabilité 
+                Gestion de la Comptabilité ...
                 </div>
 
                 <div class="link">
